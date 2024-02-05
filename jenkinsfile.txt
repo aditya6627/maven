@@ -29,7 +29,7 @@ pipeline
         steps
         {
            git 'https://github.com/Shrinivasc/AutomationTesting.git'
-          sh 'java -jar /home/ubuntu/.jenkins/workspace/declarative/testing.jar' 
+          sh 'java -jar /home/ubuntu/.jenkins/workspace/devops/testing.jar' 
            
         }
     }
@@ -38,7 +38,7 @@ pipeline
         steps
         {
             input message:'NEED APROVAL FROM DELIVARY MANAGER!',submitter:'Nikhil'
-            deploy adapters: [tomcat9(credentialsId: 'c8296e88-8039-498d-96e1-7ae3342bd6e4', path: '', url: 'http://172.31.26.105:8080')], contextPath: 'leg', war: '**/*.war'
+            deploy adapters: [tomcat9(credentialsId: '9c28a9ee-651d-4703-b848-1872d88b530d', path: '', url: 'http://172.31.29.73:8080')], contextPath: 'prod', war: '**/*.war'
         }
     }
     }
