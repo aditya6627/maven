@@ -21,24 +21,7 @@ pipeline
     {
         steps
         {
-           deploy adapters: [tomcat9(credentialsId: 'ec8bccde-3eaa-4733-991d-88da2e09c469', path: '', url: 'http://172.31.22.37:8080')], contextPath: 'test', war: '**/*.war'
-        }
-    }
-    stage('continuous testing')
-    {
-        steps
-        {
-           git 'https://github.com/Shrinivasc/AutomationTesting.git'
-          sh 'java -jar /home/ubuntu/.jenkins/workspace/devops/testing.jar' 
-           
-        }
-    }
-    stage('continous delivery')
-    {
-        steps
-        {
-            input message:'NEED APROVAL FROM DELIVARY MANAGER!',submitter:'Nikhil'
-            deploy adapters: [tomcat9(credentialsId: '9c28a9ee-651d-4703-b848-1872d88b530d', path: '', url: 'http://172.31.29.73:8080')], contextPath: 'prod', war: '**/*.war'
+           deploy adapters: [tomcat9(credentialsId: '661a09f1-b370-4227-8a79-c0f2edccd979', path: '', url: 'http://172.31.29.233:8080')], contextPath: 'test', war: '**/*.war'
         }
     }
     }
